@@ -1,44 +1,106 @@
-# Streak Trivia (Quiz)
+# Contact Pro Knowledge Assistant
 
-## Descrição do Projeto
+Intelligent training and support assistant for **Sinch Contact Pro**.
 
-O objetivo deste projeto é implementar um quiz de perguntas e respostas no Telegram, onde os participantes devem acertar as respostas para avançar para as próximas rodadas. Os participantes que errarem serão eliminados, e o último a permanecer será o vencedor. 
+The assistant helps users answer Contact Pro questions using approved and traceable knowledge sources, initially focused on **Sinch Contact Pro On-Premise FP21 documentation**.
 
-O sistema deve ser escalável e seguir boas práticas de design e arquitetura distribuída, utilizando integração direta com o Telegram.
+## Project Goals
 
-## Regras do Jogo
+This is both a product and a learning project.
 
-- 10 rodadas com envio de 1 pergunta por vez.
-- Os participantes que acertarem avançam para a próxima rodada, os que errarem são eliminados.
-- O último participante restante será o vencedor.
-- As perguntas são enviadas simultaneamente para todos os participantes.
-- Cada participante tem no máximo 10 segundos para responder a cada pergunta.
-- Ao final de cada rodada, um ranking será enviado com os participantes classificados e eliminados, ordenado por tempo de resposta.
+The project aims to explore:
 
-## Requisitos Técnicos
+- Modern backend development with TypeScript
+- Distributed systems
+- Asynchronous processing
+- AI-assisted software development
+- Retrieval-Augmented Generation (RAG)
+- Knowledge management
+- Human-in-the-loop AI
+- Testing and software architecture
 
-- **Canal**: Integração direta com o Telegram (sem conv API).
-- **Linguagem de Programação**: Node.js, TypeScript.
-- **Arquitetura**: Produtor -> Fila/Tópico -> Consumidor.
-- **Banco de Dados**: PostgreSQL para registro de mensagens (MO e MT).
-- **Cache**: Redis para controle de perguntas, ranking e participantes.
-- **Mensageria**: Utilizar comunicação assíncrona (fila/tópico) com SQS, RabbitMQ, Kafka ou SNS.
-- **Infraestrutura**: Utilização de Docker e AWS ECS.
-- **Framework Web**: NestJS.
-- **Serverless**: Lambda para produtores.
+## How It Works
 
-### Conceitos Aplicados
+The initial concept is:
 
-- **Design Patterns**: Singleton, Factory, Builder, Strategy, Observer, Chain of Responsibility, Dependency Injection.
-- **Best Practices**: Clean Code (primeiros 5 capítulos), APIs REST, Mensageria assíncrona.
-- **Conteinerização**: Docker, ECS.
-- **Serverless**: Lambdas (AWS).
-- **CI/CD**: Gitlab, Jenkins.
-- **Arquitetura de Microserviços**: Implementação distribuída e escalável.
+```text
+User
+  ↓
+Question
+  ↓
+Knowledge Retrieval
+  ↓
+Contact Pro Documentation
+  ↓
+Grounded Answer
+  ↓
+User Feedback
+```
 
-## Referências
+If the available documentation is insufficient, the system should make that explicit rather than inventing an answer.
 
-- [Roadmap Backend](https://roadmap.sh/backend)
-- [Clean Code Notes](https://github.com/JuanCrg90/Clean-Code-Notes)
-- [Design Patterns](https://refactoring.guru/pt-br/design-patterns)
-- [Producer-Consumer Pattern](https://dsysd-dev.medium.com/system-design-patterns-producer-consumer-pattern-1572f813329b)
+User feedback can become a **candidate knowledge improvement**, but it must be reviewed and validated by a human before becoming approved knowledge.
+
+## Initial Knowledge Domain
+
+The first knowledge domain is:
+
+**Sinch Contact Pro On-Premise FP21**
+
+Knowledge should preserve its source and product version whenever possible.
+
+Official documentation is considered the source of truth for Contact Pro-specific information.
+
+## Development Principles
+
+- AI proposes; human decides.
+- Build incrementally.
+- Prefer simple solutions.
+- Keep business logic independent from infrastructure.
+- Test business rules.
+- Avoid unnecessary dependencies.
+- Do not introduce AI infrastructure before it is needed.
+- Never invent undocumented Contact Pro behavior.
+- Keep knowledge traceable to its source.
+
+## Project Status
+
+**Current phase:** Sprint 0 — Foundation
+
+The project is currently establishing:
+
+- Repository structure
+- Development guidelines
+- Requirements
+- Initial architecture
+- Architectural decision records
+
+The first implementation will start only after the foundation is defined.
+
+## Development
+
+### Prerequisites
+
+- Node.js
+- npm
+- Docker
+- Git
+
+### Local development
+
+Development instructions will be added as the application components are introduced.
+
+## Documentation
+
+Project documentation is organized under `docs/`:
+
+```text
+docs/
+├── requirements.md
+├── architecture.md
+└── decisions/
+```
+
+## License
+
+This project is currently intended as a personal learning and development project.
