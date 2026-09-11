@@ -267,7 +267,7 @@ Business rules must be testable independently from external services.
 
 ### NFR-03 — Scalability
 
-The architecture should allow the application to scale horizontally.
+The architecture should allow the application to scale horizontally when required.
 
 ---
 
@@ -288,21 +288,21 @@ These capabilities should be introduced when asynchronous processing is implemen
 
 ### NFR-05 — Local Development
 
-The project should be executable locally without requiring paid cloud infrastructure.
+The MVP must be executable locally without requiring cloud infrastructure.
 
 ---
 
-### NFR-06 — Cost
+### NFR-06 — Zero Cost MVP
 
-The target development cost is:
+The MVP must operate at **$0/month** in infrastructure and external service costs.
 
-**$0/month**
+The MVP must not require paid cloud infrastructure or paid external APIs.
 
-Maximum planned cost without explicit approval:
+---
 
-**$5/month**
+### NFR-07 — Explicit Cost Approval
 
-Paid infrastructure must not be introduced without justification and explicit approval.
+Any infrastructure or external service that introduces recurring costs must be explicitly evaluated and approved before being introduced.
 
 ---
 
